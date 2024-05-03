@@ -1,9 +1,11 @@
 console.log("Hello World");
 
-//Create a function variable for getComputerChoice
 //getComputerChoice returns one of: rock, paper, scissors
 function getComputerChoice() {
-  let randomNumber = Math.floor(Math.random() * 100) + 1; //getComputerChoice randomizes a number from 1 to 100
+  function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+  let randomNumber = Math.floor(getRandomArbitrary(1, 100)); // randomizes a number from 1 to 99 rounded down
   if (randomNumber <= 33) {
     return "rock"; //if random number 1 to 33 then rock
   } else if (randomNumber <= 66) {
@@ -18,6 +20,7 @@ function getHumanChoice() {
   return prompt("Choose: Rock, Paper or Scissors?", "Rock");
 }
 
+//Main function to play the game
 function playGame() {
   let humanSelection;
   let computerSelection;
@@ -75,14 +78,15 @@ function playGame() {
       console.log("Computer: " + computerScore + " Human: " + humanScore);
     }
   }
-  resetVar();
-  playRound(humanSelection, computerSelection);
-  resetVar();
-  playRound(humanSelection, computerSelection);
-  resetVar();
-  playRound(humanSelection, computerSelection);
-  resetVar();
-  playRound(humanSelection, computerSelection);
-  resetVar();
-  playRound(humanSelection, computerSelection);
+
+  //for loop, plays 5 rounds then stops, resets variables before every round
+  for (let roundNum = 0; roundNum < 5; roundNum++) {
+    resetVar();
+    playRound(humanSelection, computerSelection);
+  }
+  if (computerScore > humanScore) {
+    console.log("You lose!");
+  } else if (computerScore < humanScore) {
+    console.log("You win!");
+  } else console.log("It's a tie!");
 }
