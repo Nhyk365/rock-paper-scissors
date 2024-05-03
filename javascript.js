@@ -19,38 +19,54 @@ function getHumanChoice() {
 
 let humanScore = 0;
 let computerScore = 0;
-const humanSelection = getHumanChoice().toLowerCase();
+const humanSelection = getHumanChoice().toLowerCase(); //toLowerCase to level any type of entry "Rock, ROCK, rOCK, ..."
 const computerSelection = getComputerChoice();
 
 //Compare human and computer choices and declares the winner
 function playRound(humanChoice, computerChoice) {
   if ((humanChoice == "rock") & (computerChoice == "paper")) {
     console.log("You Lose, paper beats rock!");
+    computerScore += 1;
+    console.log("Computer: " + computerScore + " Human: " + humanScore);
   }
   if ((humanChoice == "rock") & (computerChoice == "scissors")) {
     console.log("You Win, Rock beats scissors!");
+    humanScore += 1;
+    console.log("Computer: " + computerScore + " Human: " + humanScore);
   }
   if ((humanChoice == "rock") & (computerChoice == "rock")) {
     console.log("Tie, Rock against rock!");
+    console.log("Computer: " + computerScore + " Human: " + humanScore);
   }
   if ((humanChoice == "paper") & (computerChoice == "scissors")) {
     console.log("You Lose, scissors beats paper!");
+    computerScore += 1;
+    console.log("Computer: " + computerScore + " Human: " + humanScore);
   }
   if ((humanChoice == "paper") & (computerChoice == "rock")) {
     console.log("You Win, paper beats rock!");
+    humanScore += 1;
+    console.log("Computer: " + computerScore + " Human: " + humanScore);
   }
   if ((humanChoice == "paper") & (computerChoice == "paper")) {
     console.log("Tie, paper against paper!");
+    console.log("Computer: " + computerScore + " Human: " + humanScore);
   }
   if ((humanChoice == "scissors") & (computerChoice == "rock")) {
     console.log("You Lose, rock beats scissors!");
+    computerScore += 1;
+    console.log("Computer: " + computerScore + " Human: " + humanScore);
   }
   if ((humanChoice == "scissors") & (computerChoice == "paper")) {
     console.log("You Win, scissors beats paper!");
+    humanScore += 1;
+    console.log("Computer: " + computerScore + " Human: " + humanScore);
   }
   if ((humanChoice == "scissors") & (computerChoice == "scissors")) {
     console.log("Tie, scissors against scissors!");
+    console.log("Computer: " + computerScore + " Human: " + humanScore);
   }
 }
 
+//invoke playRound and uses getHumanChoice and getComputerChoice outputs
 playRound(humanSelection, computerSelection);
